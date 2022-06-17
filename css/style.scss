@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Norse-Bold;
+  src: url(./Norse-Bold.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  display: flex;
+}
+
+.left {
+  width: 40vw;
+  height: 100vh;
+
+  background-image: url("../img/stormheim.jpg");
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  
+  color: white;
+  
+  .logo {
+    background: rgba(0, 0, 0, 0.4);
+    margin-top: 20vh;
+    padding: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      height: 6rem;
+    }
+    
+    font-family: Norse-Bold;
+    font-size: 5rem;
+  }
+
+  .credits {
+
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 0.7rem;
+  }  
+}
+
+
+.right {
+  color: black;
+}
