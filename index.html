@@ -13,19 +13,65 @@
 </head>
 <body>
   <div class="left">
+
+    <video autoplay muted loop poster="./img/firstframe.jpg">
+      <source src="./img/stormheim.webm" type="video/webm">
+    </video>
+
     <div class="logo">
       <img src="./img/odin-logo.png" alt="odin project logo">
       <span>Odin</span>
     </div>
     <div class="credits">
-      Photo by Go'Rim
+      Video by Go'Rim on <a href="https://www.artstation.com/gorim">ArtStation</a>
     </div>
   </div>
 
   <div class="right">
-    <p>yo</p>
+    <form action="http://httpbin.org/post" method="post">
+      <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+      <p>Sign up <i>now</i> to get started.</p>
+      <p>You know you want to</p>
+
+      <div class="inputsWrapper">
+        <p>Let's do this!</p>
+        <div class="grid">
+          <label for="firstName">
+            First name
+            <input size="22" required type="text" name="firstName" id="firstName">
+          </label>
+          
+          <label for="lastName">
+            Last name
+            <input size="22" required type="text" name="lastName" id="lastName">
+          </label>
+  
+          <label for="email">
+            E-mail
+            <input size="22" required type="email" name="email" id="email">
+          </label>
+  
+          <label for="phoneNumber">
+            Phone number
+            <input size="22" required type="tel" name="phoneNumber" id="phoneNumber">
+          </label>
+  
+          <label for="userPassword">
+            Password
+            <input size="22" required type="password" name="userPassword" id="userPassword">
+          </label>
+  
+          <label for="passwordConfirm">
+            Confirm password
+            <input size="22" required type="password" name="passwordConfirm" id="passwordConfirm">
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">Create Account</button>
+
+      <p>Already have an account? <a href="https://youtu.be/dQw4w9WgXcQ">Log in</a></p>
+    </form>
   </div>
-
-
 </body>
 </html>

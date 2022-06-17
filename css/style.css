@@ -9,6 +9,7 @@
 
 html {
   font-family: "Roboto", sans-serif;
+  color: rgb(225, 225, 225);
   height: 100vh;
   width: 100vw;
 }
@@ -20,12 +21,19 @@ body {
 .left {
   width: 40vw;
   height: 100vh;
-  background-image: url("../img/stormheim.jpg");
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  color: white;
+  flex-shrink: 0;
+}
+.left video {
+  position: fixed;
+  width: 40vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
 }
 .left .logo {
   background: rgba(0, 0, 0, 0.4);
@@ -45,7 +53,114 @@ body {
   text-align: center;
   font-size: 0.7rem;
 }
+.left .credits a {
+  color: rgb(225, 225, 225);
+}
+
+.right form .inputsWrapper, .right form > p {
+  margin-left: 4rem;
+  margin-right: 1rem;
+}
 
 .right {
-  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(18, 18, 18);
+}
+.right form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.right form > p {
+  font-size: 1.5em;
+}
+.right form p:nth-child(2) {
+  margin-bottom: 1em;
+}
+.right form p:nth-child(3) {
+  margin-bottom: 2em;
+}
+.right form p:last-child {
+  font-size: 1rem;
+}
+.right form .inputsWrapper {
+  padding: 2rem;
+  margin-left: 3rem;
+  background-color: rgb(30, 30, 30);
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.right form .inputsWrapper p {
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+}
+.right form .inputsWrapper .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 3em;
+       column-gap: 3em;
+  row-gap: 1em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.right form .inputsWrapper .grid label {
+  font-size: 1rem;
+}
+.right form .inputsWrapper .grid input,
+.right form .inputsWrapper .grid input:-webkit-autofill,
+.right form .inputsWrapper .grid input:-webkit-autofill:hover,
+.right form .inputsWrapper .grid input:-webkit-autofill:focus {
+  display: block;
+  padding: 0.3em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  font-size: 1.3rem;
+  color: rgb(225, 225, 225);
+  background: rgb(30, 30, 30);
+  background-color: rgb(30, 30, 30);
+  /* prevents chrome from changing color on autocomplete */
+  -webkit-text-fill-color: rgb(225, 225, 225);
+  box-shadow: 0 0 0px 1000px rgb(30, 30, 30) inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  outline: none !important;
+}
+.right form .inputsWrapper .grid input:focus {
+  border: 1px solid rgb(116, 76, 13) !important;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4) !important;
+}
+.right form .inputsWrapper .grid .passwordError > input {
+  border: 1px solid rgb(173, 40, 40);
+}
+.right form .inputsWrapper .grid .passwordError::after {
+  position: absolute;
+  content: "* Passwords do not match";
+  color: rgb(173, 40, 40);
+  font-size: 0.8rem;
+}
+.right form button {
+  margin: 2em 3rem;
+  padding: 1em;
+  border: none;
+  border-radius: 2em;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(116, 76, 13);
+  cursor: pointer;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+.right form button:hover {
+  filter: brightness(1.2);
+}
+.right form button:active {
+  filter: brightness(1.5);
+}
+.right form a {
+  color: rgb(116, 76, 13);
 }/*# sourceMappingURL=style.css.map */

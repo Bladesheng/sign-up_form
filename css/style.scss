@@ -3,13 +3,18 @@
   src: url(./Norse-Bold.otf);
 }
 
+$font-stack: 'Roboto', sans-serif;
+$font-color-primary: rgb(225, 225, 225);
+$font-color-secondary: rgb(116, 76, 13);
+
 * {
   padding: 0;
   margin: 0;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-stack;
+  color: $font-color-primary;
   height: 100vh;
   width: 100vw;
 }
@@ -22,14 +27,19 @@ body {
   width: 40vw;
   height: 100vh;
 
-  background-image: url("../img/stormheim.jpg");
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  
-  color: white;
+  flex-shrink: 0;
+
+  video {
+    position: fixed;
+    width: 40vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
   
   .logo {
     background: rgba(0, 0, 0, 0.4);
@@ -49,14 +59,142 @@ body {
   }
 
   .credits {
-
     margin-bottom: 5px;
     text-align: center;
     font-size: 0.7rem;
+    
+    a {
+      color: $font-color-primary;
+    }
   }  
 }
 
 
+$middle-margin: 4rem;
+%indentation {
+  margin-left: $middle-margin;
+  margin-right: 1rem;
+}
+
 .right {
-  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgb(18, 18, 18);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    >p {
+      @extend %indentation;
+      font-size: 1.5em;
+    }
+
+    p:nth-child(2) {
+      margin-bottom: 1em;
+    }
+
+    p:nth-child(3) {
+      margin-bottom: 2em;
+    }
+
+    p:last-child {
+      font-size: 1rem;
+    }
+
+    .inputsWrapper {
+      @extend %indentation;
+      padding: 2rem;
+      margin-left: calc($middle-margin - 1rem);
+
+      $wrapper-bg-color: rgb(30, 30, 30);
+      background-color: $wrapper-bg-color;
+      border-radius: 5px;
+      box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 1em;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3em;
+        row-gap: 1em;
+        width: fit-content;
+
+        label {
+          font-size: 1rem;
+        }
+        input,
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus {
+          display: block;
+
+          padding: 0.3em;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 5px;
+
+          font-size: 1.3rem;
+          color: $font-color-primary;
+          background: $wrapper-bg-color;
+          background-color: $wrapper-bg-color;
+          /* prevents chrome from changing color on autocomplete */
+          -webkit-text-fill-color: $font-color-primary;
+          box-shadow: 0 0 0px 1000px $wrapper-bg-color inset;
+          transition: background-color 5000s ease-in-out 0s;
+          outline: none !important;      
+        }
+        input:focus {  
+          border: 1px solid $font-color-secondary !important;
+          box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        $error-color: rgb(173, 40, 40);
+        .passwordError>input {
+          border: 1px solid $error-color;
+        }
+        .passwordError::after {
+          position: absolute;
+          content: '* Passwords do not match';
+          color: $error-color;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+
+    button {
+      margin: 2em calc($middle-margin - 1rem);
+
+      padding: 1em;
+      border: none;
+      border-radius: 2em;
+
+      font-size: 1rem;
+      font-weight: 500;
+      color: $font-color-primary;
+      font-family: $font-stack;
+      background-color: rgb(116, 76, 13);
+
+      cursor: pointer;
+      box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+    }
+    button:hover {
+      filter: brightness(1.2);
+    }
+    button:active {
+      filter: brightness(1.5);
+    }
+
+    a {
+      color: $font-color-secondary;
+    }
+  }
 }
